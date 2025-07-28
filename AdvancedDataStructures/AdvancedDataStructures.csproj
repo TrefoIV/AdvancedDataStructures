@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Title>AdvancedDataStructures</Title>
+	<Authors>Samuele Quinzi</Authors>
+	<Company>Università Roma Tre</Company>
+	<Description>A collection of advanced data structures</Description>
+	<PackageId>AdvancedDataStructures</PackageId>
+	<PackageOutputPath>..\NugetPackets</PackageOutputPath>
+	<Version>1.0.0</Version>
+  </PropertyGroup>
+
+</Project>
