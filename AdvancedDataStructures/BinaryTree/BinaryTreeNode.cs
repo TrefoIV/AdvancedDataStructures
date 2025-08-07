@@ -7,6 +7,10 @@ namespace AdvancedDataStructures.BinaryTree
     {
         private BinaryTreeNode<T> _trueNode;
         private BinaryTreeNode<T> _falseNode;
+
+        public bool HasTrueChild => _trueNode != null;
+        public bool HasFalseChild => _falseNode != null;
+
         public BinaryTreeNode<T> TrueNode
         {
             get
