@@ -101,6 +101,38 @@ namespace AdvancedDataStructures.BinaryTree
 			throw new Exception();
 		}
 
+		public void ActionOnBranch(byte[] prefix, int cidr, Action<BinaryTreeNode<T>> visitor)
+		{
+			BinaryTreeNode<T> current = Root;
+			visitor(current);
+			for (int i = 0; i < prefix.Length; i++)
+			{
+				for (int j = 0; j < 8; j++)
+				{
+
+					bool bit = prefix[i].GetBitLittleEndian(j);
+					if (bit)
+					{
+						current = current.TrueNode;
+					}
+					else
+					{
+						current = current.FalseNode;
+					}
+					if (current is null)
+					{
+						throw new Exception("Prefix not reachable, not present in the tree");
+					}
+					cidr--;
+					visitor(current);
+					if (cidr < 0)
+					{
+						return;
+					}
+				}
+			}
+		}
+
 		public void GetAllLeafs(out List<T> leaves)
 		{
 			leaves = new List<T>();
@@ -110,6 +142,10 @@ namespace AdvancedDataStructures.BinaryTree
 		public void Empty()
 		{
 			Root = new BinaryTreeNode<T>();
+		}
+		public void Clear()
+		{
+			Root = new();
 		}
 	}
 }
