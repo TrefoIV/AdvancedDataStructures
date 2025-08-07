@@ -42,6 +42,11 @@ namespace AdvancedDataStructures.ConcatenatedList
 			AddToEmpty(x);
 		}
 
+		public void Add(T item)
+		{
+			AddLast(item);
+		}
+
 		public void AddFirst(T item)
 		{
 			if (_head == null)
