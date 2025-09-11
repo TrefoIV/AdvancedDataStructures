@@ -147,11 +147,11 @@ namespace AdvancedDataStructures.ConcatenatedList
 			_head = null;
 		}
 
-		public void Concat(ConcatenatedLinkedList<T> other)
+		public ConcatenatedLinkedList<T> Concat(ConcatenatedLinkedList<T> other)
 		{
 			if (other == null)
 			{
-				return;
+				return this;
 			}
 			if (_head is null)
 			{
@@ -167,7 +167,7 @@ namespace AdvancedDataStructures.ConcatenatedList
 			}
 			else if (other._head is null)
 			{
-				return;
+				return this;
 			}
 			else if (other._size == 1)
 			{
@@ -187,6 +187,7 @@ namespace AdvancedDataStructures.ConcatenatedList
 				_size += other._size;
 			}
 			other.Clear();
+			return this;
 		}
 
 		public IEnumerator<T> GetEnumerator()
