@@ -76,5 +76,10 @@ namespace AdvancedDataStructures.Extensions
 		{
 			return source.Where(selector).MinMax();
 		}
+
+		public static (TValue min, TValue max) MinMax<T, TValue>(this IEnumerable<T> source, Func<T, TValue> selector) where TValue : IComparable<TValue>
+		{
+			return source.Select(selector).MinMax();
+		}
 	}
 }
