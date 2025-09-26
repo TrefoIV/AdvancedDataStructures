@@ -218,14 +218,14 @@ namespace AdvancedDataStructures.ConcatenatedList
 			return _head.Value;
 		}
 
-		public class Enumerator : IEnumerator<T>, IEnumerator
+		public class Enumerator : IEnumerator<T?>, IEnumerator
 		{
-			public T Current => _current.Value;
+			public T? Current => _current != null ? _current.Value : default;
 
 			object IEnumerator.Current => Current;
 
 			private ConcatenatedLinkedList<T> _list;
-			private ConcatenatedLinkedListNode<T>? _current;
+			private ConcatenatedLinkedListNode<T> _current;
 
 			public Enumerator(ConcatenatedLinkedList<T> list)
 			{
@@ -243,7 +243,7 @@ namespace AdvancedDataStructures.ConcatenatedList
 				if (_current == null)
 				{
 					_current = _list._head;
-					return _current is not null; // _current is not null;
+					return _current != null; // _current is not null;
 				}
 				if (_current != _list._head?.Prev)
 				{
